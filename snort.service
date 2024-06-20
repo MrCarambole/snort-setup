@@ -1,0 +1,10 @@
+[Unit]
+Description=Lancer Snort
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/snort -q -u snort -g snort -c /etc/snort/snort.conf -i $interface
+
+[Install]
+WantedBy=multi-user.target
