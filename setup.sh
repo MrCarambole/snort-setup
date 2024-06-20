@@ -1,4 +1,8 @@
 apt-get update -y
 apt-get upgrade -y
 apt-get install snort -y
-curl "" >/lib/systemd/system/snort.service
+curl "https://raw.githubusercontent.com/MrCarambole/snort-setup/main/snort.service" >/lib/systemd/system/snort.service
+read -p "Interface à utiliser: " $inter
+sed -i "s/INTERFACE/$inter/g" /lib/systemd/system/snort.service
+sudo systemctl daemon-reload
+sudo systemctl start snort
