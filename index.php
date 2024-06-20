@@ -49,6 +49,18 @@
     </style>
 </head>
 <body>
+<h2>Radaaar Alerts</h2>
+<?php
+$filename = "/var/log/radaaar/alert.log";
+
+if (file_exists($filename)) {
+    $myfile = fopen($filename, "r") or die("Unable to open file!");
+    echo fread($myfile, filesize($filename));
+    fclose($myfile);
+} else {
+    echo "Le fichier de log de radaaar n'existe pas.";
+}
+?>
 
 <h2>Snort Alerts</h2>
 
