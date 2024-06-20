@@ -1,5 +1,3 @@
-apt-get update -y
-apt-get upgrade -y
 apt-get install snort -y
 curl "https://raw.githubusercontent.com/MrCarambole/snort-setup/main/snort.service" >/lib/systemd/system/snort.service
 read -p "Interface à utiliser: " $inter
